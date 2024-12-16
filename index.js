@@ -29,7 +29,7 @@ app.post("/webhook", async function(req, res){
     await axios.post("https://api-btl-web-2024-1.vercel.app/transaction/confirm", 
         { 
             amount: transaction.amount,
-            description: transaction.description
+            description: transaction.description.split(' ')[0]
         }
     )
     res.send("ok")
